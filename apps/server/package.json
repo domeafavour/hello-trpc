@@ -11,9 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "@trpc/client": "^10.45.1",
-    "@trpc/server": "^10.45.1"
+    "@trpc/server": "^10.45.1",
+    "cors": "^2.8.5"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "tsx": "^4.7.1"
   }
 }
