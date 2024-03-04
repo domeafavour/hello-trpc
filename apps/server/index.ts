@@ -1,4 +1,5 @@
 import { createHTTPServer } from '@trpc/server/adapters/standalone';
+import { z } from 'zod';
 import { db } from './db';
 import cors from 'cors';
 import { publicProcedure, router } from './trpc';
@@ -8,6 +9,12 @@ export const appRouter = router({
     const users = await db.user.findMany();
     return users;
   }),
+  userCreate: publicProcedure
+    .input(z.object({ firstName: z.string(), lastName: z.string() }))
+    .mutation(async ({ input }) => {
+      const user = await db.user.insertOne(input);
+      return user;
+    }),
 });
 
 // Export type router type signature,

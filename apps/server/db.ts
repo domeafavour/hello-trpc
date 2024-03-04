@@ -12,5 +12,10 @@ const users: User[] = [
 export const db = {
   user: {
     findMany: async () => users,
+    insertOne: async (input: Omit<User, 'id'>) => {
+      const user = { ...input, id: users.length };
+      users.push(user);
+      return user;
+    },
   },
 };
