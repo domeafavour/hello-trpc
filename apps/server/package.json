@@ -1,0 +1,19 @@
+{
+  "name": "@app/server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "dev:server": "tsx watch ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@trpc/client": "^10.45.1",
+    "@trpc/server": "^10.45.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.7.1"
+  }
+}
