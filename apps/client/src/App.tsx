@@ -4,7 +4,7 @@ import { NewUserForm } from './containers/NewUserForm';
 import { trpc } from './utils/trpc';
 
 function App() {
-  const { data, isLoading, refetch } = trpc.userList.useQuery();
+  const { data, isLoading } = trpc.userList.useQuery();
 
   if (isLoading) {
     return <Loading />;
@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div>
-      <NewUserForm refetch={refetch} isUsersLoading={isLoading} />
+      <NewUserForm />
 
       <ul className="divide-y">
         {data.map((user) => {
