@@ -1,4 +1,6 @@
 import { type User } from '@app/server';
+import { FormControl } from './FormControl';
+import { Input } from './Input';
 
 export type UserValues = Omit<User, 'id'>;
 
@@ -17,14 +19,14 @@ export function UserForm({
 }: UserFormProps) {
   return (
     <form
+      className="flex flex-col gap-2"
       onSubmit={async (e) => {
         e.preventDefault();
         onSubmit();
       }}
     >
-      <div>
-        firstName:
-        <input
+      <FormControl label="firstName">
+        <Input
           name="firstName"
           disabled={disabled}
           value={values.firstName}
@@ -32,10 +34,9 @@ export function UserForm({
             onValuesChange({ ...values, firstName: e.target.value });
           }}
         />
-      </div>
-      <div>
-        lastName:
-        <input
+      </FormControl>
+      <FormControl label="lastName">
+        <Input
           name="lastName"
           value={values.lastName}
           disabled={disabled}
@@ -43,7 +44,7 @@ export function UserForm({
             onValuesChange({ ...values, lastName: e.target.value });
           }}
         />
-      </div>
+      </FormControl>
       <div>
         <button type="submit" disabled={disabled}>
           New User

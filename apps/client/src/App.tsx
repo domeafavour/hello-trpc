@@ -31,10 +31,10 @@ function App() {
         }}
       />
 
-      <ul>
+      <ul className="divide-y">
         {data.map((user) => {
           return (
-            <li key={user.id}>
+            <li key={user.id} className="p-2 cursor-pointer">
               {user.firstName} {user.lastName}
             </li>
           );
