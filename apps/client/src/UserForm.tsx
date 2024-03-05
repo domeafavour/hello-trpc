@@ -1,7 +1,6 @@
-export type UserValues = {
-  firstName: string;
-  lastName: string;
-};
+import { type User } from '@app/server';
+
+export type UserValues = Omit<User, 'id'>;
 
 export type UserFormProps = {
   disabled?: boolean;
