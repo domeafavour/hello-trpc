@@ -1,12 +1,12 @@
 import { trpc } from '../utils/trpc';
 
-export type UserItempProps = {
+export type UserItemProps = {
   id: number;
   firstName: string;
   lastName: string;
 };
 
-export function UserItem({ id, firstName, lastName }: UserItempProps) {
+export function UserItem({ id, firstName, lastName }: UserItemProps) {
   const utils = trpc.useUtils();
   const { mutate, isLoading } = trpc.userRemove.useMutation({
     onSuccess: () => {
