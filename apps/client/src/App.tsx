@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import { UserForm } from './UserForm';
 import { trpc } from './utils/trpc';
 
 function App() {
@@ -18,44 +19,17 @@ function App() {
   const formDisabled = isLoading || createMutation.isLoading;
   return (
     <div>
-      <form
-        onSubmit={async (e) => {
-          e.preventDefault();
+      <UserForm
+        values={values}
+        onValuesChange={setValues}
+        disabled={formDisabled}
+        onSubmit={async () => {
           await createMutation.mutateAsync(values);
           setValues({ firstName: '', lastName: '' });
           refetch();
         }}
-      >
-        <div>
-          firstName:
-          <input
-            name="firstName"
-            disabled={formDisabled}
-            value={values.firstName}
-            onChange={(e) => {
-              const newFirstName = e.target.value;
-              setValues((r) => ({ ...r, firstName: newFirstName }));
-            }}
-          />
-        </div>
-        <div>
-          lastName:
-          <input
-            name="lastName"
-            value={values.lastName}
-            disabled={formDisabled}
-            onChange={(e) => {
-              const newLastName = e.target.value;
-              setValues((r) => ({ ...r, lastName: newLastName }));
-            }}
-          />
-        </div>
-        <div>
-          <button type="submit" disabled={formDisabled}>
-            New User
-          </button>
-        </div>
-      </form>
+      />
+
       <ul>
         {data.map((user) => {
           return (
