@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import { Loading } from './Loading';
 import { UserForm } from './UserForm';
 import { trpc } from './utils/trpc';
 
@@ -10,7 +11,7 @@ function App() {
   const [values, setValues] = useState({ firstName: '', lastName: '' });
 
   if (isLoading) {
-    return <div>loading...</div>;
+    return <Loading />;
   }
   if (!data) {
     return <div>no users</div>;
