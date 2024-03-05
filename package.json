@@ -4,7 +4,10 @@
   "description": "",
   "private": true,
   "type": "module",
-  "scripts": {},
+  "scripts": {
+    "dev:server": "cd apps/server && pnpm dev:server",
+    "dev:client": "cd apps/client && pnpm dev"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
