@@ -1,5 +1,5 @@
 export type FormControlProps = {
-  label: string;
+  label: React.ReactNode;
   children: React.ReactNode;
 };
 

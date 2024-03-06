@@ -1,18 +1,18 @@
-import renderer from 'react-test-renderer';
+/**
+ * @jest-environment jsdom
+ */
+import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
 import { FormControl } from './FormControl';
 
-it('renders <FormControl label="Test Label">Test Child</FormControl> correctly', () => {
-  const formControlElement = renderer.create(
-    <FormControl label="Test Label">Test Child</FormControl>
+test('renders label and children correctly', () => {
+  render(
+    <FormControl label={<span>Test Label</span>}>
+      <input placeholder="input placeholder" />
+    </FormControl>
   );
-  const tree = formControlElement.toJSON();
-  expect(tree).toMatchSnapshot();
-});
 
-it('renders <FormControl label="Label" /> correctly', () => {
-  const formControlElement = renderer.create(
-    <FormControl label="Label">hello</FormControl>
-  );
-  const tree = formControlElement.toJSON();
-  expect(tree).toMatchSnapshot();
+  expect(screen.getByText('Test Label')).toBeInTheDocument();
+  expect(screen.getByPlaceholderText('input placeholder')).toBeInTheDocument();
+  // expect(screen.getByPlaceholderText('INPUT PLACEHOLDER')).toBeInTheDocument();
 });
