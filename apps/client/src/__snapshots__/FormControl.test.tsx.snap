@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders <FormControl label="Label" /> correctly 1`] = `
+<div
+  className="flex flex-row gap-2 items-center font-mono"
+>
+  Label
+  :
+  hello
+</div>
+`;
+
+exports[`renders <FormControl label="Test Label">Test Child</FormControl> correctly 1`] = `
+<div
+  className="flex flex-row gap-2 items-center font-mono"
+>
+  Test Label
+  :
+  Test Child
+</div>
+`;
