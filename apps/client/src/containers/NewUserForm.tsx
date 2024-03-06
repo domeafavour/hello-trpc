@@ -1,14 +1,11 @@
-import { useState } from 'react';
-import { UserForm, type UserValues } from '../UserForm';
+import { UserForm } from '../UserForm';
 import { trpc } from '../utils/trpc';
+import { useUserForm } from './useUserForm';
 
 const { userCreate, useUtils } = trpc;
 
 export function NewUserForm() {
-  const [values, setValues] = useState<UserValues>({
-    firstName: '',
-    lastName: '',
-  });
+  const [values, setValues] = useUserForm();
   const utils = useUtils();
 
   const { mutateAsync, isLoading } = userCreate.useMutation({
