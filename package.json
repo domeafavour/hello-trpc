@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev:server": "cd apps/server && pnpm dev:server",
-    "dev:client": "cd apps/client && pnpm dev"
+    "dev:client": "cd apps/client && pnpm dev",
+    "test:client": "cd apps/client && pnpm test"
   },
   "keywords": [],
   "author": "",

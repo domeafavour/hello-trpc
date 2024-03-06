@@ -1,0 +1,12 @@
+{
+  "presets": [
+    "@babel/preset-env",
+    // https://stackoverflow.com/questions/58980934/referenceerror-react-is-not-defined-in-jest-tests
+    [
+      "@babel/preset-react",
+      {
+        "runtime": "automatic"
+      }
+    ]
+  ]
+}
