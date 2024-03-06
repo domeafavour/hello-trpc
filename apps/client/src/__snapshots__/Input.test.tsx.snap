@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Input correctly 1`] = `
+<input
+  className="border-2 border-gray-300 rounded-md p-2 w-1/2"
+  name="test-input"
+  onChange={[Function]}
+  value=""
+/>
+`;
